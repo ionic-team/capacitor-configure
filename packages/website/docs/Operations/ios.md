@@ -139,7 +139,7 @@ platforms:
 
 Updates values in the `INFOPLIST_FILE` for the given target and build, or updates the given plist `file`. Set `replace` to `true` to overwrite the entire target object (if `false`, the values will be merged):
 
-**New in 7.0.3 (not yet released)**:
+**New in 7.0.3**:
 
 Raw plist XML can be supplied using `xml` (which can be supplied directly or through an env var). When using this option along with `file`, the entire plist file is overwritten with the given source. When not using `file` the values are merged into the `INFOPLIST_FILE`.
 
