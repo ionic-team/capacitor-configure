@@ -1,5 +1,5 @@
 import { copy, readFile, rm } from '@ionic/utils-fs';
-import tempy from 'tempy';
+import { temporaryDirectory } from 'tempy';
 import { join } from 'path';
 import plist from 'plist';
 
@@ -9,7 +9,7 @@ import { loadYamlConfig } from '../../src/yaml-config';
 
 describe('task: run', () => {
   it('should process variables operations', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
     await copy('../common/test/fixtures/basic.yml', join(dir, 'basic.yml'));
 
     const ctx = await loadContext(dir);
@@ -45,7 +45,7 @@ describe('task: run', () => {
   });
 
   it('should handle JSON-values in variables', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
     await copy('../common/test/fixtures/basic.yml', join(dir, 'basic.yml'));
 
     const ctx = await loadContext(dir);
@@ -54,7 +54,7 @@ describe('task: run', () => {
   });
 
   it('should run operations', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
     await copy('../common/test/fixtures/basic.yml', join(dir, 'basic.yml'));
@@ -89,7 +89,7 @@ describe('task: run', () => {
   });
 
   it('Should support providing the project root as an arg', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/custom-platform-directories', dir);
 
@@ -128,7 +128,7 @@ describe('task: run', () => {
   });
 
   it('should commit operations to filesystem', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
     await copy('../common/test/fixtures/basic.yml', join(dir, 'basic.yml'));
@@ -212,7 +212,7 @@ describe('task: run', () => {
 
   // TODO: Separate this out into multiple sub-tests
   it('should commit operations to filesystem directly with y', async () => {
-    const dir = tempy.directory();
+    const dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
     await copy('../common/test/fixtures/basic.yml', join(dir, 'basic.yml'));

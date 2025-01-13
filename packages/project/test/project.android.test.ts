@@ -1,4 +1,4 @@
-import tempy from 'tempy';
+import { temporaryDirectory } from 'tempy';
 
 import { MobileProject, XmlFile } from '../src';
 
@@ -13,7 +13,7 @@ describe('project - android', () => {
   let project: MobileProject;
   let dir: string;
   beforeEach(async () => {
-    dir = tempy.directory();
+    dir = temporaryDirectory();
     await copy('../common/test/fixtures/ios-and-android', dir);
 
     config = {
@@ -357,7 +357,7 @@ describe('project - android - capacitor v5', () => {
   let project: MobileProject;
   let dir: string;
   beforeEach(async () => {
-    dir = tempy.directory();
+    dir = temporaryDirectory();
     await copy('../common/test/fixtures/cap-v5', dir);
 
     config = {

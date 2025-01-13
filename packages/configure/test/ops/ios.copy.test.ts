@@ -1,6 +1,6 @@
 import { copy, readFile, rm } from '@ionic/utils-fs';
 import { join } from 'path';
-import tempy from 'tempy';
+import { temporaryDirectory } from 'tempy';
 
 import { Context, loadContext } from '../../src/ctx';
 import { IosCopyOperation, Operation } from '../../src/definitions';
@@ -13,7 +13,7 @@ describe('op: ios.copy', () => {
   let ctx: Context;
 
   beforeEach(async () => {
-    dir = tempy.directory();
+    dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
 

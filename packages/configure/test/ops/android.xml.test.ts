@@ -1,6 +1,6 @@
 import { copy, readFile } from '@ionic/utils-fs';
 import { join } from 'path';
-import tempy from 'tempy';
+import { temporaryDirectory } from 'tempy';
 
 import { Context, loadContext } from '../../src/ctx';
 import { AndroidXmlOperation, Operation } from '../../src/definitions';
@@ -12,7 +12,7 @@ describe('op: android.xml', () => {
   let ctx: Context;
 
   beforeEach(async () => {
-    dir = tempy.directory();
+    dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
 

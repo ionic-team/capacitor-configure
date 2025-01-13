@@ -1,7 +1,7 @@
 import { copy } from '@ionic/utils-fs';
 import { JsonFile } from '@trapezedev/project';
 import { join } from 'path';
-import tempy from 'tempy';
+import { temporaryDirectory } from 'tempy';
 
 import { Context, loadContext } from '../../src/ctx';
 import { AndroidJsonOperation, Operation } from '../../src/definitions';
@@ -12,7 +12,7 @@ describe('op: android.json', () => {
   let ctx: Context;
 
   beforeEach(async () => {
-    dir = tempy.directory();
+    dir = temporaryDirectory();
 
     await copy('../common/test/fixtures/ios-and-android', dir);
 
